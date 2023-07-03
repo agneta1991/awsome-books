@@ -22,8 +22,8 @@ function addBook() {
       books.forEach((book) => {
         const bookEntry = document.createElement('div');
         bookEntry.innerHTML = `
-          <p>${authorInput.value = book.author}</p>
-          <p>${titleInput.value = book.title}</p>
+          <p>${book.author}</p>
+          <p>${book.title}</p>
           <button class="removebtn">Remove</button>
           <span></span>
         `;
@@ -68,6 +68,22 @@ function addBook() {
   authorInput.addEventListener('input', updateButtonState);
 
   renderBooks();
+
+  const storedTitle = window.localStorage.getItem('title');
+  const storedAuthor = window.localStorage.getItem('author');
+  if (storedTitle) {
+    titleInput.value = storedTitle;
+  }
+  if (storedAuthor) {
+    authorInput.value = storedAuthor;
+  }
+
+  titleInput.addEventListener('input', () => {
+    window.localStorage.setItem('title', titleInput.value);
+  });
+  authorInput.addEventListener('input', () => {
+    window.localStorage.setItem('author', authorInput.value);
+  });
 }
 
 addBook();
