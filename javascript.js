@@ -22,8 +22,8 @@ function addBook() {
       books.forEach((book) => {
         const bookEntry = document.createElement('div');
         bookEntry.innerHTML = `
-          <p>${authorInput.value = book.author }</p>
-          <p>${titleInput.value = book.title }</p>
+          <p>${authorInput.value = book.author}</p>
+          <p>${titleInput.value = book.title}</p>
           <button class="removebtn">Remove</button>
           <span></span>
         `;
