@@ -13,6 +13,36 @@ function addBook() {
     }
   }
 
+  function renderBooks() {
+    dynamiclist.innerHTML = '';
+
+    const storedBooks = JSON.parse(window.localStorage.getItem('books'));
+    if (storedBooks) {
+      books = storedBooks;
+      books.forEach((book) => {
+        const bookEntry = document.createElement('div');
+        bookEntry.innerHTML = `
+          <p>${authorInput.value = book.author }</p>
+          <p>${titleInput.value = book.title }</p>
+          <button class="removebtn">Remove</button>
+          <span></span>
+        `;
+
+        const removeBtn = bookEntry.querySelector('.removebtn');
+        removeBtn.addEventListener('click', () => {
+          const { parentElement } = removeBtn;
+          parentElement.remove();
+          // Update the books array after removing
+          books = books.filter((b) => b.title !== book.title && b.author !== book.author);
+          // Update the local storage with the updated books array
+          window.localStorage.setItem('books', JSON.stringify(books));
+        });
+
+        dynamiclist.appendChild(bookEntry);
+      });
+    }
+  }
+
   bookAddition.addEventListener('click', () => {
     if (!bookAddition.disabled) {
       const title = titleInput.value.trim();
@@ -25,7 +55,7 @@ function addBook() {
         };
         books.push(book);
         window.localStorage.setItem('books', JSON.stringify(books));
-        
+
         renderBooks();
 
         titleInput.value = '';
@@ -36,35 +66,6 @@ function addBook() {
 
   titleInput.addEventListener('input', updateButtonState);
   authorInput.addEventListener('input', updateButtonState);
-
-  // Render books from local storage
-  function renderBooks() {
-    dynamiclist.innerHTML = '';
-
-    const storedBooks = JSON.parse(window.localStorage.getItem('books'));
-    if (storedBooks) {
-      books = storedBooks;
-      for (const book of books) {
-        const bookEntry = document.createElement('div');
-        bookEntry.innerHTML = `
-          <p>${ titleInput.value = book.author}</p>
-          <p>${ authorInput.value = book.title}</p>
-          <button class="removebtn">Remove</button>
-          <span></span>
-        `;
-
-        const removeBtn = bookEntry.querySelector('.removebtn');
-        removeBtn.addEventListener('click', () => {
-            removeBtn.parentElement.remove();
-            localStorage.clear('books')
-            books = books.filter((e) => e.title !== book.title && e.author !== book.author);
-            window.localStorage.setItem('books', JSON.stringify(books));
-        });
-
-        dynamiclist.appendChild(bookEntry);
-      }
-    }
-  }
 
   renderBooks();
 }
