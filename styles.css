@@ -4,11 +4,11 @@
     padding: 0;
 }
 
-#dynamicList {
+.dynamicList {
     margin: 0.5em;
 }
 
-#dynamicList span {
+.dynamicList span {
     border-bottom: 1px solid gray;
     display: block;
     margin: 0.6em 0;
