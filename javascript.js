@@ -1,4 +1,4 @@
-const books = [];
+let books = [];
 const bookAddition = document.getElementById('addBook');
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
@@ -25,22 +25,8 @@ function addBook() {
         };
         books.push(book);
         window.localStorage.setItem('books', JSON.stringify(books));
-
-        const bookEntry = document.createElement('div');
-        bookEntry.innerHTML = `
-          <p>${book.author}</p>
-          <p>${book.title}</p>
-          <button class="removebtn">Remove</button>
-          <span></span>
-        `;
-
-        const removeBtn = bookEntry.querySelector('.removebtn');
-        removeBtn.addEventListener('click', () => {
-          const { parentElement } = removeBtn;
-          parentElement.remove();
-        });
-
-        dynamiclist.appendChild(bookEntry);
+        
+        renderBooks();
 
         titleInput.value = '';
         authorInput.value = '';
@@ -52,6 +38,37 @@ function addBook() {
   authorInput.addEventListener('input', updateButtonState);
 
   updateButtonState();
+
+  // Render books from local storage
+  function renderBooks() {
+    dynamiclist.innerHTML = '';
+
+    const storedBooks = JSON.parse(window.localStorage.getItem('books'));
+    if (storedBooks) {
+      books = storedBooks;
+      for (const book of books) {
+        const bookEntry = document.createElement('div');
+        bookEntry.innerHTML = `
+          <p>${ titleInput.value = book.author}</p>
+          <p>${ authorInput.value = book.title}</p>
+          <button class="removebtn">Remove</button>
+          <span></span>
+        `;
+
+        const removeBtn = bookEntry.querySelector('.removebtn');
+        removeBtn.addEventListener('click', () => {
+            removeBtn.parentElement.remove();
+            localStorage.clear('books')
+            books = books.filter((e) => e.title !== book.title && e.author !== book.author);
+            window.localStorage.setItem('books', JSON.stringify(books));
+        });
+
+        dynamiclist.appendChild(bookEntry);
+      }
+    }
+  }
+
+  renderBooks();
 }
 
 addBook();
