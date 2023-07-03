@@ -1,33 +1,22 @@
 let books = [];
 const bookAddition = document.getElementById('addBook');
-/*
+bookAddition.addEventListener('click', bookFunction);
 
-function newBook(){
-  let div = document.createElement('div');
-  body.appendChild(div);
+/*titleInput.value = '';
+authorInput.value = '';
 
-  let firstP = document.createElement('p');
-  div.appendChild(firstP);
-
-  let secondP = document.createElement('p');
-  div.appendChild(secondP);
-
-  let removeBtn = document.createElement('button')
-  div.appendChild(removeBtn);
+if (title === '' || author === '') {
+  alert('Please enter both the title and author.');
+  return;
 }*/
 
 
-function addBook() {
-  const titleInput = document.querySelector('.title');
-  const authorInput = document.querySelector('.author');
+function bookFunction() {
+
+  const titleInput = document.getElementById('title');
+  const authorInput = document.getElementById('author');
   const title = titleInput.value;
   const author = authorInput.value;
-
-  if (title === '' || author === '') {
-    alert('Please enter both the title and author.');
-    return;
-  }
-
   const book = {
     title,
     author,
@@ -35,9 +24,18 @@ function addBook() {
 
   books.push(book);
 
-  titleInput.value = '';
-  authorInput.value = '';
-  bookAddition.addEventListener('click', ()=>{
-    
-  })
+  const dynamicDiv = document.getElementById('dynamicList')
+  let div = document.createElement('div');
+  dynamicDiv.appendChild(div);
+
+  let firstP = document.createElement('p');
+  firstP.innerHTML = `${book.title}`
+  div.appendChild(firstP);
+
+  let secondP = document.createElement('p');
+  secondP.innerHTML = `${book.author}`
+  div.appendChild(secondP);
+
+  let removeBtn = document.createElement('button')
+  div.appendChild(removeBtn);
 }
