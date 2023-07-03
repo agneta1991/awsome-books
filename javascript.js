@@ -1,43 +1,56 @@
 let books = [];
 const bookAddition = document.getElementById('addBook');
-/*
-
-function newBook(){
-  let div = document.createElement('div');
-  body.appendChild(div);
-
-  let firstP = document.createElement('p');
-  div.appendChild(firstP);
-
-  let secondP = document.createElement('p');
-  div.appendChild(secondP);
-
-  let removeBtn = document.createElement('button')
-  div.appendChild(removeBtn);
-}*/
-
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const dynamiclist = document.querySelector(".dynamicList");
 
 function addBook() {
-  const titleInput = document.querySelector('.title');
-  const authorInput = document.querySelector('.author');
-  const title = titleInput.value;
-  const author = authorInput.value;
-
-  if (title === '' || author === '') {
-    alert('Please enter both the title and author.');
-    return;
+  function updateButtonState() {
+    if (!titleInput.value || !authorInput.value || titleInput.value.trim() === '' || authorInput.value.trim() === '') {
+      bookAddition.disabled = true;
+    } else {
+      bookAddition.disabled = false;
+    }
   }
 
-  const book = {
-    title,
-    author,
-  };
+  bookAddition.addEventListener('click', function(){
+    if (!bookAddition.disabled) {
+      const title = titleInput.value.trim();
+      const author = authorInput.value.trim();
 
-  books.push(book);
+      if (title !== '' && author !== '') {
+        const book = {
+          title: title,
+          author: author
+        };
+        books.push(book);
 
-  titleInput.value = '';
-  authorInput.value = '';
-  bookAddition.addEventListener('click', ()=>{
-    
-  })
+        const bookEntry = document.createElement("div");
+        bookEntry.innerHTML = `
+          <p>${book.author}</p>
+          <p>${book.title}</p>
+          <button class="removebtn">Remove</button>
+          <span></span>
+        `;
+
+        const removeBtn = bookEntry.querySelector('.removebtn');
+        removeBtn.addEventListener("click", () => {
+          const parentElement = removeBtn.parentElement;
+          parentElement.remove();
+        });
+
+        dynamiclist.appendChild(bookEntry);
+
+        titleInput.value = "";
+        authorInput.value = "";
+      }
+    }
+  });
+
+  titleInput.addEventListener('input', updateButtonState);
+  authorInput.addEventListener('input', updateButtonState);
+
+  updateButtonState();
 }
+
+addBook();
