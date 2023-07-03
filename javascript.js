@@ -37,8 +37,6 @@ function addBook() {
   titleInput.addEventListener('input', updateButtonState);
   authorInput.addEventListener('input', updateButtonState);
 
-  updateButtonState();
-
   // Render books from local storage
   function renderBooks() {
     dynamiclist.innerHTML = '';
