@@ -13,7 +13,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -47,16 +46,6 @@ This Awsome books project is a JavaScript based project allowing to add and remo
 
 - **Project is created dynamically**
 - **Project is set up wit localStorage**
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-## 🚀 Live Demo <a name="live-demo"></a>
-<br>
-
-- [Click me to view deployed project!](whenevr it will be deployed)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
