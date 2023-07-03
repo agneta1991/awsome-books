@@ -27,8 +27,6 @@
 # 📖 Awsome Books <a name="about-project"></a>
 <br>
 
-<img src="images/readme-pic.jpg" alt="project" />
-<br>
 
 <br>
 This Awsome books project is a JavaScript based project allowing to add and remove books.
