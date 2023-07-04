@@ -53,14 +53,14 @@ class BookManager {
     if (storedBooks) {
       this.books = storedBooks;
       this.books.forEach((book) => {
-          const bookEntry = document.createElement('div');
-              bookEntry.innerHTML = `
+        const bookEntry = document.createElement('div');
+        bookEntry.innerHTML = `
           <p>${book.author}</p>
           <p>${book.title}</p>
           <button class="removebtn">Remove</button>
           <span></span>
         `;
-          
+
         const removeBtn = bookEntry.querySelector('.removebtn');
         removeBtn.addEventListener('click', () => {
           const { parentElement } = removeBtn;
