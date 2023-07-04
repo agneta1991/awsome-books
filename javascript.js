@@ -53,9 +53,8 @@ class BookManager {
     if (storedBooks) {
       this.books = storedBooks;
       this.books.forEach((book, i) => {
-
         const bookEntry = document.createElement('div');
-        if (i % 2 !== 0){
+        if (i % 2 !== 0) {
           bookEntry.style.backgroundColor = 'lightgrey';
         }
         bookEntry.innerHTML = `
@@ -72,8 +71,7 @@ class BookManager {
         });
 
         this.dynamicList.appendChild(bookEntry);
-      }
-      );
+      });
     }
   }
 
