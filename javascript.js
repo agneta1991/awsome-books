@@ -14,6 +14,7 @@ class BookManager {
     this.addBook = this.addBook.bind(this);
     this.updateButtonState = this.updateButtonState.bind(this);
     this.renderBooks = this.renderBooks.bind(this);
+    this.removeBook = this.removeBook.bind(this);
 
     this.bookAddition.addEventListener('click', this.addBook);
     this.titleInput.addEventListener('input', this.updateButtonState);
@@ -39,7 +40,10 @@ class BookManager {
   }
 
   updateButtonState() {
-    if (!this.titleInput.value || !this.authorInput.value || this.titleInput.value.trim() === '' || this.authorInput.value.trim() === '') {
+    if (!this.titleInput.value
+          || !this.authorInput.value
+          || this.titleInput.value.trim() === ''
+          || this.authorInput.value.trim() === '') {
       this.bookAddition.disabled = true;
     } else {
       this.bookAddition.disabled = false;
@@ -61,15 +65,10 @@ class BookManager {
           <p>"${book.title}" by ${book.author}</p>
           <button class="removebtn">Remove</button>
         `;
-
         const removeBtn = bookEntry.querySelector('.removebtn');
         removeBtn.addEventListener('click', () => {
-          const { parentElement } = removeBtn;
-          parentElement.remove();
-          this.books = this.books.filter((b) => b.title !== book.title && b.author !== book.author);
-          window.localStorage.setItem('books', JSON.stringify(this.books));
+          this.removeBook(book);
         });
-
         this.dynamicList.appendChild(bookEntry);
       });
     }
@@ -95,5 +94,12 @@ class BookManager {
       }
     }
   }
+
+  removeBook(book) {
+    this.books = this.books.filter((e) => e.title !== book.title && e.author !== book.author);
+    window.localStorage.setItem('books', JSON.stringify(this.books));
+    this.renderBooks();
+  }
 }
+
 BookManager.init();
