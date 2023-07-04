@@ -52,13 +52,15 @@ class BookManager {
     const storedBooks = JSON.parse(window.localStorage.getItem('books'));
     if (storedBooks) {
       this.books = storedBooks;
-      this.books.forEach((book) => {
+      this.books.forEach((book, i) => {
+
         const bookEntry = document.createElement('div');
+        if (i % 2 !== 0){
+          bookEntry.style.backgroundColor = 'lightgrey';
+        }
         bookEntry.innerHTML = `
-          <p>${book.author}</p>
-          <p>${book.title}</p>
+          <p>"${book.title}" by ${book.author}</p>
           <button class="removebtn">Remove</button>
-          <span></span>
         `;
 
         const removeBtn = bookEntry.querySelector('.removebtn');
@@ -70,7 +72,8 @@ class BookManager {
         });
 
         this.dynamicList.appendChild(bookEntry);
-      });
+      }
+      );
     }
   }
 
