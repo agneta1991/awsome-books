@@ -13,7 +13,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -27,8 +26,6 @@
 # 📖 Awsome Books <a name="about-project"></a>
 <br>
 
-<img src="images/readme-pic.jpg" alt="project" />
-<br>
 
 <br>
 This Awsome books project is a JavaScript based project allowing to add and remove books.
@@ -49,16 +46,6 @@ This Awsome books project is a JavaScript based project allowing to add and remo
 
 - **Project is created dynamically**
 - **Project is set up wit localStorage**
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-## 🚀 Live Demo <a name="live-demo"></a>
-<br>
-
-- [Click me to view deployed project!](whenevr it will be deployed)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -90,6 +77,9 @@ To get a local copy up and running, follow these steps:
 - Twitter: [@twitterhandle](https://twitter.com/pupienytea)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/agneta-pupienyte-124a27256/?originalSubdomain=lt)
 
+👤 **Mohammed roshdy** 
+- GitHub: [@githubhandle](https://github.com/MohamedRoshdy2021)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammed-elkhadragy-2b58b6215/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
