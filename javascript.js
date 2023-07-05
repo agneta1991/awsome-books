@@ -18,10 +18,12 @@ class BookManager {
     this.listitem.addEventListener('click', () => {
       this.dynamicList.style.display = 'block';
       this.inputsdiv.style.display = 'none';
+      this.contactForm.style.display = 'none';
     });
     this.addNew.addEventListener('click', () => {
       this.inputsdiv.style.display = 'flex';
       this.dynamicList.style.display = 'none';
+      this.contactForm.style.display = 'none';
     });
 
     this.contact.addEventListener('click', () => {
