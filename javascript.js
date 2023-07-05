@@ -9,7 +9,18 @@ class BookManager {
     this.bookAddition = document.getElementById('addBook');
     this.titleInput = document.getElementById('title');
     this.authorInput = document.getElementById('author');
-    this.dynamicList = document.querySelector('.dynamicList');
+      this.dynamicList = document.querySelector('.dynamicList');
+      this.inputsdiv = document.querySelector('.inputsDiv')
+      this.listitem = document.querySelector('#list')
+      this.addNew = document.querySelector("#addnew")
+      this.listitem.addEventListener('click', () => {
+          this.dynamicList.style.display = "block"
+          this.inputsdiv.style.display = "none"
+      })
+      this.addNew.addEventListener("click", () => {
+          this.inputsdiv.style.display = "flex"
+          this.dynamicList.style.display = "none"
+      })
 
     this.addBook = this.addBook.bind(this);
     this.updateButtonState = this.updateButtonState.bind(this);
@@ -64,21 +75,23 @@ class BookManager {
     if (storedBooks) {
       this.books = storedBooks;
       this.books.forEach((book, i) => {
-        const bookEntry = document.createElement('div');
+          const bookEntry = document.createElement('div');
         if (i % 2 !== 0) {
           bookEntry.style.backgroundColor = 'lightgrey';
-        }
-        bookEntry.innerHTML = `
+          }
+          
+          bookEntry.innerHTML = `
           <p>"${book.title}" by ${book.author}</p>
           <button class="removebtn">Remove</button>
         `;
+          
         const removeBtn = bookEntry.querySelector('.removebtn');
         removeBtn.addEventListener('click', () => {
           this.removeBook(book);
         });
-        this.dynamicList.appendChild(bookEntry);
+          this.dynamicList.appendChild(bookEntry);
       });
-    }
+      }
   }
 
   addBook() {
