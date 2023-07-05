@@ -18,6 +18,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
+}
+
+.inputsDiv h4 {
+  color: chocolate;
+  text-transform: capitalize;
 }
 
 #addBook {
@@ -41,6 +47,11 @@ h1 {
 .dynamicList {
   margin: 1.5em;
   border: 2px solid black;
+  display: none;
+}
+
+.dynamicList .active {
+  display: block;
 }
 
 .dynamicList span {
@@ -62,4 +73,69 @@ input {
 .removebtn,
 #addBook {
   box-shadow: 5px 2px 2px black;
+}
+
+nav {
+  padding: 0.5em;
+  background-color: lightgray;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  padding: 0.5em;
+  cursor: pointer;
+  border-right: 1px solid black;
+}
+
+#time {
+  text-align: right;
+  padding: 0.4em 0.8em;
+}
+
+footer {
+  border: 2px solid black;
+  padding: 0.2em;
+  position: fixed;
+  bottom: 0.4em;
+  width: 100%;
+}
+
+.contact-form {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+  width: 70%;
+  margin: 0 auto;
+  font-weight: 600;
+  gap: 1em;
+}
+
+.contact-form h2 {
+  padding-bottom: 1em;
+}
+
+.contact-form ul {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 2.4em;
+  line-height: 2.4rem;
+}
+
+.contact-form ul li {
+  list-style: disc;
+}
+
+nav ul li:nth-last-child(1) {
+  border: none;
 }

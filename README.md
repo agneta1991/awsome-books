@@ -127,4 +127,4 @@ I would like to extend my heartfelt gratitude to Microverse for providing me wit
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
