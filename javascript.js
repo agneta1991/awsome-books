@@ -41,9 +41,9 @@ class BookManager {
 
   updateButtonState() {
     if (!this.titleInput.value
-      || !this.authorInput.value
-      || this.titleInput.value.trim() === ''
-      || this.authorInput.value.trim() === '') {
+          || !this.authorInput.value
+          || this.titleInput.value.trim() === ''
+          || this.authorInput.value.trim() === '') {
       this.bookAddition.disabled = true;
     } else {
       this.bookAddition.disabled = false;
@@ -52,13 +52,6 @@ class BookManager {
 
   renderBooks() {
     this.dynamicList.innerHTML = '';
-
-    const timeP = document.getElementById('time');
-    const today = new Date();
-    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    const dateTime = date + ' ' + time;
-    timeP.innerHTML = dateTime;
 
     const storedBooks = JSON.parse(window.localStorage.getItem('books'));
     if (storedBooks) {
@@ -107,9 +100,6 @@ class BookManager {
     window.localStorage.setItem('books', JSON.stringify(this.books));
     this.renderBooks();
   }
-
-
 }
-
 
 BookManager.init();
