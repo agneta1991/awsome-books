@@ -63,3 +63,30 @@ input {
 #addBook {
   box-shadow: 5px 2px 2px black;
 }
+
+nav {
+    padding: 0.5em;
+    background-color: lightgray;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+    padding: 0.5em;
+}
+
+#time {
+    text-align: right;
+}
+
+footer {
+    border: 2px solid black;
+    padding: 0.2em;
+}
