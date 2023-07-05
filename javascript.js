@@ -75,11 +75,16 @@ class BookManager {
     this.dynamicList.innerHTML = '';
 
     const timeP = document.getElementById('time');
-    const today = new Date();
-    const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-    const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
-    const dateTime = `${date} ${time}`;
-    timeP.innerHTML = dateTime;
+
+    function updateTime() {
+      const today = new Date();
+      const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+      const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+      const dateTime = `${date} ${time}`;
+      timeP.innerHTML = dateTime;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
 
     const storedBooks = JSON.parse(window.localStorage.getItem('books'));
     if (storedBooks) {
