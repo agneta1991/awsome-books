@@ -9,18 +9,26 @@ class BookManager {
     this.bookAddition = document.getElementById('addBook');
     this.titleInput = document.getElementById('title');
     this.authorInput = document.getElementById('author');
-      this.dynamicList = document.querySelector('.dynamicList');
-      this.inputsdiv = document.querySelector('.inputsDiv')
-      this.listitem = document.querySelector('#list')
-      this.addNew = document.querySelector("#addnew")
-      this.listitem.addEventListener('click', () => {
-          this.dynamicList.style.display = "block"
-          this.inputsdiv.style.display = "none"
-      })
-      this.addNew.addEventListener("click", () => {
-          this.inputsdiv.style.display = "flex"
-          this.dynamicList.style.display = "none"
-      })
+    this.dynamicList = document.querySelector('.dynamicList');
+    this.inputsdiv = document.querySelector('.inputsDiv');
+    this.listitem = document.querySelector('#list');
+    this.addNew = document.querySelector('#addnew');
+    this.contact = document.querySelector('#contact');
+    this.contactForm = document.querySelector('.contact-form');
+    this.listitem.addEventListener('click', () => {
+      this.dynamicList.style.display = 'block';
+      this.inputsdiv.style.display = 'none';
+    });
+    this.addNew.addEventListener('click', () => {
+      this.inputsdiv.style.display = 'flex';
+      this.dynamicList.style.display = 'none';
+    });
+
+    this.contact.addEventListener('click', () => {
+      this.contactForm.style.display = 'flex';
+      this.inputsdiv.style.display = 'none';
+      this.dynamicList.style.display = 'none';
+    });
 
     this.addBook = this.addBook.bind(this);
     this.updateButtonState = this.updateButtonState.bind(this);
@@ -66,32 +74,32 @@ class BookManager {
 
     const timeP = document.getElementById('time');
     const today = new Date();
-    const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    const dateTime = date + ' ' + time;
+    const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+    const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    const dateTime = `${date} ${time}`;
     timeP.innerHTML = dateTime;
 
     const storedBooks = JSON.parse(window.localStorage.getItem('books'));
     if (storedBooks) {
       this.books = storedBooks;
       this.books.forEach((book, i) => {
-          const bookEntry = document.createElement('div');
+        const bookEntry = document.createElement('div');
         if (i % 2 !== 0) {
           bookEntry.style.backgroundColor = 'lightgrey';
-          }
-          
-          bookEntry.innerHTML = `
+        }
+
+        bookEntry.innerHTML = `
           <p>"${book.title}" by ${book.author}</p>
           <button class="removebtn">Remove</button>
         `;
-          
+
         const removeBtn = bookEntry.querySelector('.removebtn');
         removeBtn.addEventListener('click', () => {
           this.removeBook(book);
         });
-          this.dynamicList.appendChild(bookEntry);
+        this.dynamicList.appendChild(bookEntry);
       });
-      }
+    }
   }
 
   addBook() {
@@ -120,9 +128,6 @@ class BookManager {
     window.localStorage.setItem('books', JSON.stringify(this.books));
     this.renderBooks();
   }
-
-
 }
-
 
 BookManager.init();
